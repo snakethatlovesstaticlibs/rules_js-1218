@@ -8,7 +8,7 @@ if __name__ == "__main__":
     types_out_dir = os.environ.get("TYPES_OUT_DIR")
 
     result = subprocess.run(
-        ["true", "--help"],
+        [openapi_ts_bin, "--help"],
         capture_output=True,
         text=True,
     )

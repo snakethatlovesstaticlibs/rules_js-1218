@@ -252,6 +252,28 @@
         }
       }
     },
+    "@@pybind11_bazel+//:internal_configure.bzl%internal_configure_extension": {
+      "general": {
+        "bzlTransitiveDigest": "06cynZ1bCvvy8zHPrrDlXq+Z68xmjctHpfFxi+zEpJY=",
+        "usagesDigest": "D1r3lfzMuUBFxgG8V6o0bQTLMk3GkaGOaPzw53wrwyw=",
+        "recordedInputs": [
+          "REPO_MAPPING:pybind11_bazel+,bazel_tools bazel_tools",
+          "FILE:@@pybind11_bazel+//MODULE.bazel e6f4c20442eaa7c90d7190d8dc539d0ab422f95c65a57cc59562170c58ae3d34"
+        ],
+        "generatedRepoSpecs": {
+          "pybind11": {
+            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+            "attributes": {
+              "build_file": "@@pybind11_bazel+//:pybind11-BUILD.bazel",
+              "strip_prefix": "pybind11-2.12.0",
+              "urls": [
+                "https://github.com/pybind/pybind11/archive/v2.12.0.zip"
+              ]
+            }
+          }
+        }
+      }
+    },
     "@@rules_kotlin+//src/main/starlark/core/repositories:bzlmod_setup.bzl%rules_kotlin_extensions": {
       "general": {
         "bzlTransitiveDigest": "ABI1D/sbS1ovwaW/kHDoj8nnXjQ0oKU9fzmzEG4iT8o=",
@@ -312,7 +334,7 @@
     "@@rules_nodejs+//nodejs:extensions.bzl%node": {
       "general": {
         "bzlTransitiveDigest": "4pUxCNc22K4I+6+4Nxu52Hur12tFRfa1JMsN5mdDv60=",
-        "usagesDigest": "2vV3MdUWxi2hkZvVZ6sLzRulxhBreyINxED4aGudNDQ=",
+        "usagesDigest": "3Oe5W0ZjyDu6Kk5BSTEXUTABDemxBiN1YFYCnBgbRu0=",
         "recordedInputs": [],
         "generatedRepoSpecs": {
           "nodejs_linux_amd64": {
@@ -323,7 +345,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "22.22.0",
+              "node_version": "24.13.0",
               "include_headers": false,
               "platform": "linux_amd64"
             }
@@ -336,7 +358,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "22.22.0",
+              "node_version": "24.13.0",
               "include_headers": false,
               "platform": "linux_arm64"
             }
@@ -349,7 +371,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "22.22.0",
+              "node_version": "24.13.0",
               "include_headers": false,
               "platform": "linux_s390x"
             }
@@ -362,7 +384,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "22.22.0",
+              "node_version": "24.13.0",
               "include_headers": false,
               "platform": "linux_ppc64le"
             }
@@ -375,7 +397,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "22.22.0",
+              "node_version": "24.13.0",
               "include_headers": false,
               "platform": "darwin_amd64"
             }
@@ -388,7 +410,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "22.22.0",
+              "node_version": "24.13.0",
               "include_headers": false,
               "platform": "darwin_arm64"
             }
@@ -401,7 +423,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "22.22.0",
+              "node_version": "24.13.0",
               "include_headers": false,
               "platform": "windows_amd64"
             }
@@ -414,7 +436,7 @@
               "node_urls": [
                 "https://nodejs.org/dist/v{version}/{filename}"
               ],
-              "node_version": "22.22.0",
+              "node_version": "24.13.0",
               "include_headers": false,
               "platform": "windows_arm64"
             }
