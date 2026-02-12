@@ -1,17 +1,10 @@
 load("@npm//:defs.bzl", "npm_link_all_packages")
-load("@rules_python//python:py_binary.bzl", "py_binary")
 
 package(default_visibility = ["//visibility:public"])
 
 npm_link_all_packages()
 
 load("@npm//:openapi-typescript/package_json.bzl", openapi_ts_bin = "bin")
-
-py_binary(
-    name = "build_file_script",
-    srcs = ["//:generate_build_bazel.py"],
-    main = "//:generate_build_bazel.py",
-)
 
 openapi_ts_bin.openapi_typescript_binary(
     name = "openapi_typescript_cli",

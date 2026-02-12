@@ -1,14 +1,13 @@
 def _thing_impl(ctx):
     openapi_ts_cli = ctx.executable._npm_cli
-    python_generator = ctx.executable._python_generator
     types_dir = ctx.actions.declare_directory(ctx.attr.name + "_types")
 
     # Run Python script to generate all outputs
     ctx.actions.run(
         outputs = [types_dir],
         inputs = [],
-        executable = python_generator,
-        tools = [openapi_ts_cli],
+        executable = openapi_ts_cli,
+        arguments = ["--help"],
         env = {
             # Required for js_binary from aspect_rules_js
             # See: https://github.com/aspect-build/rules_js/tree/21ca6e2198a4c222389c58093bedb11dd950f4ec?tab=readme-ov-file#running-nodejs-programs
@@ -34,12 +33,6 @@ thing_codegen = rule(
             executable = True,
             cfg = "exec",
             doc = "openapi-typescript CLI tool from npm",
-        ),
-        "_python_generator": attr.label(
-            default = "//:build_file_script",
-            executable = True,
-            cfg = "exec",
-            doc = "Python script for generating TypeScript client code",
         ),
     },
     doc = "Generate TypeScript API client code from OpenAPI spec using openapi-typescript",
