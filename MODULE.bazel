@@ -1,0 +1,6 @@
+bazel_dep(name = "rules_foo", version = "0.0.1")
+
+local_path_override(
+    module_name = "rules_foo",
+    path = "other-modules/rules_foo",
+)

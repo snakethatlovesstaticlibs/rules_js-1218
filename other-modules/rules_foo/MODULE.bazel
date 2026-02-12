@@ -1,0 +1,28 @@
+"""JavaScript and npm toolchain configuration."""
+module(
+    name = "rules_foo",
+    version = "0.0.1",
+)
+
+bazel_dep(name = "aspect_rules_js", version = "3.0.0-rc4")
+bazel_dep(name = "rules_nodejs", version = "6.7.3")
+
+# Configure Node.js toolchain
+node = use_extension("@rules_nodejs//nodejs:extensions.bzl", "node", dev_dependency = True)
+node.toolchain(node_version = "24.13.0")  # Match ui/devenv.nix nodejs_24
+
+# Configure npm extension for codegen tools (OpenAPI TypeScript)
+npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm", dev_dependency = True)
+npm.npm_translate_lock(
+    name = "npm_codegen",
+    pnpm_lock = "@rules_foo//:pnpm-lock.yaml",
+    data = [
+        "@rules_foo//:package.json"
+    ],
+    update_pnpm_lock = True,
+)
+use_repo(npm, "npm_codegen")
+
+# Configure pnpm extension (for pnpm version management)
+pnpm = use_extension("@aspect_rules_js//npm:extensions.bzl", "pnpm")
+use_repo(pnpm, "pnpm")
