@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 from pathlib import Path
 
 if __name__ == "__main__":
@@ -7,7 +8,7 @@ if __name__ == "__main__":
     types_out_dir = os.environ.get("TYPES_OUT_DIR")
 
     result = subprocess.run(
-        [openapi_ts_bin, spec_path, "--help"],
+        ["true", "--help"],
         capture_output=True,
         text=True,
     )

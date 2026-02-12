@@ -1,1 +1,3 @@
-other-modules/rules_foo/
+other-modules/rules_foo/*
+other-modules/*
+other-modules/
