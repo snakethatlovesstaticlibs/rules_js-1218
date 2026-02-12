@@ -3,11 +3,10 @@ def _thing_impl(ctx):
     types_dir = ctx.actions.declare_directory(ctx.attr.name + "_types")
 
     # Run Python script to generate all outputs
-    ctx.actions.run(
+    ctx.actions.run_shell(
         outputs = [types_dir],
-        inputs = [],
-        executable = openapi_ts_cli,
-        arguments = ["--help"],
+        inputs = [openapi_ts_cli],
+        command =  "mkdir -p " + types_dir.path + " && " + openapi_ts_cli.path + " --help 2>&1 >" + types_dir.path + "/help.txt",
         env = {
             # Required for js_binary from aspect_rules_js
             # See: https://github.com/aspect-build/rules_js/tree/21ca6e2198a4c222389c58093bedb11dd950f4ec?tab=readme-ov-file#running-nodejs-programs
