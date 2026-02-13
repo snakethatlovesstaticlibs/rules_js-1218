@@ -1,25 +1,9 @@
 """JavaScript and npm toolchain configuration."""
+
 module(
     name = "rules_foo",
     version = "0.0.1",
 )
-
-bazel_dep(name = "bazel_lib", version = "3.0.0", dev_dependency = True)
-bazel_dep(name = "bazel_skylib", version = "1.5.0", dev_dependency = True)
-
-bazel_dep(name = "rules_nodejs", version = "6.7.3")
-
-# Configure Node.js toolchain
-node = use_extension("@rules_nodejs//nodejs:extensions.bzl", "node", dev_dependency = True)
-node.toolchain(node_version = "24.13.0")
-
-pnpm = use_extension("@aspect_rules_js//npm:extensions.bzl", "pnpm")
-pnpm.pnpm(
-    name = "pnpm",
-    pnpm_version = "9.15.9",
-    pnpm_version_integrity = "sha512-aARhQYk8ZvrQHAeSMRKOmvuJ74fiaR1p5NQO7iKJiClf1GghgbrlW1hBjDolO95lpQXsfF+UA+zlzDzTfc8lMQ==",
-)
-use_repo(pnpm, "pnpm")
 
 bazel_dep(name = "aspect_rules_js", version = "3.0.0-rc4")
 
@@ -27,10 +11,10 @@ bazel_dep(name = "aspect_rules_js", version = "3.0.0-rc4")
 npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm")
 npm.npm_translate_lock(
     name = "npm",
-    pnpm_lock = "//:pnpm-lock.yaml",
     data = [
-        "//:package.json"
+        "//:package.json",
     ],
+    pnpm_lock = "//:pnpm-lock.yaml",
     verify_node_modules_ignored = "//:.bazelignore",
 )
 use_repo(npm, "npm")
