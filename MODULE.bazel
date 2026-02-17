@@ -3,3 +3,10 @@ local_path_override(
     module_name = "rules_foo",
     path = "other-modules/rules_foo",
 )
+
+archive_override(
+    module_name = "aspect_rules_js",
+    sha256 = "8c1a4b60dc4aebb3a20d0172039d5556f26fb1a6dc82f7aa1de60bced023cdf7",
+    strip_prefix = "rules_js-49201d1a4d362a3bf745b257fbf8d1f032e198c7",
+    url = "https://github.com/aspect-build/rules_js/archive/49201d1a4d362a3bf745b257fbf8d1f032e198c7.zip",
+)

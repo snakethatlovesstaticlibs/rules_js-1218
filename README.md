@@ -36,3 +36,7 @@ readlink .../65e6dcafd53adec6b1686cacaf1f8205/sandbox/linux-sandbox/39/execroot/
 ```
 
 leads to odd results (what is `..spect_rules_js`?)
+
+## Update
+
+Issue resolved by https://github.com/aspect-build/rules_js/issues/2725

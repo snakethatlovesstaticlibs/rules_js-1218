@@ -5,7 +5,7 @@ def _thing_impl(ctx):
     # Run Python script to generate all outputs
     ctx.actions.run_shell(
         outputs = [types_dir],
-        inputs = [openapi_ts_cli],
+        tools = [openapi_ts_cli],
         command =  "mkdir -p " + types_dir.path + " && " + openapi_ts_cli.path + " --help 2>&1 >" + types_dir.path + "/help.txt",
         env = {
             # Required for js_binary from aspect_rules_js
